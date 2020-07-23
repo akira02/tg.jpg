@@ -35,8 +35,5 @@ async function reply(context) {
 }
 
 module.exports = async function App(context) {
-  return router([
-    text(/\.(jpg|png|bmp|gif)$/i, reply),
-    telegram.any(DefaultAction),
-  ]);
+  return router([text(/\.(jpg|png|bmp|gif)$/i, reply)]);
 };
