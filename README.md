@@ -1,26 +1,24 @@
 # TG.jpg
 
 A telegram bot that search and return first img reply your .jpg search.
+You can add this bot to your telegram group via link https://t.me/tgjpg_bot
 
 This project was bootstrapped with
 [Bottender](https://github.com/Yoctol/bottender) init script.
 
-## Sending Feedback
-
-Always feel free to open an issue to
-[Bottender](https://github.com/Yoctol/bottender/issues) repository.
-
 ## Configuration
-
-### The `bottender.config.js` File
-
-Bottender configuration file. You can use this file to provide settings for the session store and channels.
 
 ### The `.env` File
 
 Bottender utilizes the [dotenv](https://www.npmjs.com/package/dotenv) package to load your environment variables when developing your app.
 
 To make the bot work, you must put required environment variables into your `.env` file.
+If you deploy to heroku, you can just edit env vars via heroku web interface "Settings" -> "Config Vars"
+
+Currently TG.jpg only support telegram, so you only need to add telegram bot token.
+Google custom search api is not required.
+
+`TELEGRAM_ACCESS_TOKEN=<Telegram bot api token>`
 
 ## Available Scripts
 
@@ -58,9 +56,3 @@ Runs the linter rules using [Eslint](https://eslint.org/).
 ### `npm test`
 
 Runs the test cases using [Jest](https://jestjs.io/).
-
-## Learn More
-
-To learn Bottender, check out the [Bottender documentation](https://bottender.js.org/docs/en/getting-started).
-
-For more examples, see [Bottender examples](https://github.com/Yoctol/bottender/tree/master/examples).
