@@ -1,26 +1,27 @@
 # TG.jpg
 
-A telegram bot that search and return first img reply your .jpg search.
-You can add this bot to your telegram group via link https://t.me/tgjpg_bot
+A telegram bot that search and return first google search image when you type `something.jpg`.
+![Jul-23-2020 15-51-50](https://user-images.githubusercontent.com/4176802/88263528-bf357d00-ccfc-11ea-95cf-639e68fe97b9.gif)
+
+### You can add this bot to your telegram group via link https://t.me/tgjpg_bot
 
 This project was bootstrapped with
 [Bottender](https://github.com/Yoctol/bottender) init script.
 
-## Configuration
-
-### The `.env` File
+## Host this bot by yourself
+### Configuration The `.env` File
 
 Bottender utilizes the [dotenv](https://www.npmjs.com/package/dotenv) package to load your environment variables when developing your app.
 
-To make the bot work, you must put required environment variables into your `.env` file.
-If you deploy to heroku, you can just edit env vars via heroku web interface "Settings" -> "Config Vars"
-
-Currently TG.jpg only support telegram, so you only need to add telegram bot token.
-Google custom search api is not required.
-
+To make the bot work locally, you must put required environment variables into your `.env` file.
+Your `.env` file should looks like:
 `TELEGRAM_ACCESS_TOKEN=<Telegram bot api token>`
 
-## Available Scripts
+But if you deploy this bot on heroku, you can just edit environment variables via heroku web interface "Settings" -> "Config Vars", and add `TELEGRAM_ACCESS_TOKEN`.
+
+
+
+### Available Scripts
 
 In the project directory, you can run:
 
@@ -48,11 +49,3 @@ To run in [Console Mode](https://bottender.js.org/docs/en/the-basics-console-mod
 npm start -- --console
 yarn start --console
 ```
-
-### `npm run lint`
-
-Runs the linter rules using [Eslint](https://eslint.org/).
-
-### `npm test`
-
-Runs the test cases using [Jest](https://jestjs.io/).
