@@ -3,11 +3,7 @@ const isUrl = require("is-url");
 const { customSearch, imageSearch } = require("./google");
 
 async function search(query) {
-  try {
-    return await customSearch(query);
-  } catch (e) {
-    return await imageSearch(query);
-  }
+  return await imageSearch(query);
 }
 
 function isImage(text) {
