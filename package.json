@@ -4,9 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "bottender dev",
-    "lint": "eslint . ",
-    "start": "bottender start",
-    "test": "jest"
+    "start": "bottender start"
   },
   "dependencies": {
     "bottender": "1.4.9",
