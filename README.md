@@ -1,7 +1,7 @@
 # TG.jpg
 
-A telegram bot that search and return first google search image when you type `something.jpg`. This project was bootstrapped with
-[Bottender](https://github.com/Yoctol/bottender) init script.
+A telegram bot that search and return first google search image when you type `something.jpg`. This project was refactored using
+[Bottender](https://github.com/Yoctol/bottender) from https://github.com/ray851107/image-support-bot
 
 輸入 `xxx.jpg` ，這個機器人就會幫你去Google搜尋xxx的第一張圖片，然後傳給你～
 
