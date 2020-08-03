@@ -7,7 +7,7 @@ async function search(query) {
 }
 
 function isImage(text) {
-  return /\.(jpg|png|bmp|gif)$/.test(text);
+  return /\.(jpg|png|bmp|gif)$/i.test(text);
 }
 
 function isSo(text) {
