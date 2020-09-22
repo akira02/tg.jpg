@@ -38,7 +38,7 @@ async function imageSearch(query) {
 
   const params = {
     q: query,
-    tbs: query.endsWith(".gif") ? "ift:gif" : undefined,
+    tbs: query.endsWith(".gif") ? "ift:gif" : "ift:jpg",
     tbm: "isch",
     hl: "zh-TW",
     num: 1,
