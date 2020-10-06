@@ -30,7 +30,7 @@ async function customSearch(query) {
 
   const res = await fetch(endpoint + "?" + qs.stringify(params));
   const data = await res.json();
-  return data.items[0].link;
+  return data.items.map((item) => item.link);
 }
 
 async function imageSearch(query) {
@@ -41,7 +41,6 @@ async function imageSearch(query) {
     tbs: query.endsWith(".gif") ? "ift:gif" : "ift:jpg",
     tbm: "isch",
     hl: "zh-TW",
-    num: 1,
   };
 
   const headers = {
@@ -51,16 +50,14 @@ async function imageSearch(query) {
 
   const res = await fetch(endpoint + "?" + qs.stringify(params), { headers });
   const html = await res.text();
-  return extractImageUrl(html);
+  return extractImageUrls(html);
 }
 
-function extractImageUrl(text) {
-  const match = text.match(/ href="\/imgres\?(.*?)"/);
-  if (match == null) {
-    throw new Error("image url not found");
-  }
-  const query = entities.decodeHTML(match[1]);
-  return qs.parse(query).imgurl;
+function extractImageUrls(text) {
+  return text.matchAll(/ href="\/imgres\?(.*?)"/).map((match) => {
+    const query = entities.decodeHTML(match[1]);
+    return qs.parse(query).imgurl;
+  });
 }
 
 module.exports = { customSearch, imageSearch };
