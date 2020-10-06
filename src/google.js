@@ -54,10 +54,14 @@ async function imageSearch(query) {
 }
 
 function extractImageUrls(text) {
-  return text.matchAll(/ href="\/imgres\?(.*?)"/).map((match) => {
+  const urls = [];
+  const pattern = / href="\/imgres\?(.*?)"/g;
+  let match;
+  while ((match = pattern.exec(text)) != null) {
     const query = entities.decodeHTML(match[1]);
-    return qs.parse(query).imgurl;
-  });
+    urls.push(qs.parse(query).imgurl);
+  }
+  return urls;
 }
 
 module.exports = { customSearch, imageSearch };
