@@ -10,9 +10,6 @@ function isImage(text) {
   return /\.(jpg|png|bmp|gif)$/i.test(text);
 }
 
-function isSo(text) {
-  return /^很/.test(text);
-}
 
 async function tryEach(items, callback) {
   const errors = [];
@@ -33,7 +30,7 @@ async function reply(context) {
   const queries = text
     .split("\n")
     .map((s) => s.trim())
-    .filter((s) => isImage(s) && !isUrl(s) && !isSo(s));
+    .filter((s) => isImage(s) && !isUrl(s));
   queries.forEach(async (query) => {
     try {
       const links = await search(query);
