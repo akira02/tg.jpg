@@ -50,9 +50,11 @@ const TWITTER_URL =
   /https?:\/\/twitter\.com\/(?:#!\/)?(\w+)\/status(es)?\/(\d+)/gim;
 
 async function expandTwitter(context) {
-  let link = context.event.text.match(TWITTER_URL);
-  let expandedLink = link.replace("twitter.com", "vxtwitter.com");
-  context.sendMessage(expandedLink);
+  let links = context.event.text.match(TWITTER_URL);
+  links.forEach((link) => {
+    let expandedLink = link.replace("twitter.com", "vxtwitter.com");
+    context.sendMessage(expandedLink);
+  });
 }
 
 module.exports = async function App() {
