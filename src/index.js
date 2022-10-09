@@ -10,7 +10,6 @@ function isImage(text) {
   return /\.(jpg|png|bmp|gif)$/i.test(text);
 }
 
-
 async function tryEach(items, callback) {
   const errors = [];
   for (const item of items) {
@@ -25,7 +24,7 @@ async function tryEach(items, callback) {
   throw error;
 }
 
-async function reply(context) {
+async function replyImg(context) {
   const text = context.event.text;
   const queries = text
     .split("\n")
@@ -47,6 +46,18 @@ async function reply(context) {
   });
 }
 
-module.exports = async function App(context) {
-  return router([text(/\.(jpg|png|bmp|gif)$/i, reply)]);
+const TWITTER_URL =
+  /https?:\/\/twitter\.com\/(?:#!\/)?(\w+)\/status(es)?\/(\d+)/gim;
+
+async function expandTwitter(context) {
+  let link = context.event.text.match(TWITTER_URL);
+  let expandedLink = link.replace("twitter.com", "vxtwitter.com");
+  context.sendMessage(expandedLink);
+}
+
+module.exports = async function App() {
+  return router([
+    text(/\.(jpg|png|bmp|gif)$/i, replyImg),
+    text(TWITTER_URL, expandTwitter),
+  ]);
 };
