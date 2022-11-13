@@ -46,20 +46,6 @@ async function replyImg(context) {
   });
 }
 
-const TWITTER_URL =
-  /https?:\/\/twitter\.com\/(?:#!\/)?(\w+)\/status(es)?\/(\d+)/gim;
-
-async function expandTwitter(context) {
-  let links = context.event.text.match(TWITTER_URL);
-  links.forEach((link) => {
-    let expandedLink = link.replace("twitter.com", "vxtwitter.com");
-    context.sendMessage(expandedLink);
-  });
-}
-
 module.exports = async function App() {
-  return router([
-    text(/\.(jpg|png|bmp|gif)$/i, replyImg),
-    text(TWITTER_URL, expandTwitter),
-  ]);
+  return router([text(/\.(jpg|png|bmp|gif)$/i, replyImg)]);
 };
